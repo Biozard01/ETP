@@ -25,6 +25,8 @@ namespace EffraieTonPote
             InitializeComponent();
 
         }
+
+        /* bouton play on-click */
         private void Play(object sender, RoutedEventArgs e)
         {
             TextBlock0.Text = "Direction : ";
@@ -37,6 +39,7 @@ namespace EffraieTonPote
             Arrow.RenderTransform = rotateTransform;
         }
 
+        /* bouton reset on-click */
         private void Reset(object sender, RoutedEventArgs e)
         {
             TextBlock0.Text = "Direction : ";
@@ -47,13 +50,17 @@ namespace EffraieTonPote
             RotateTransform rotateTransform = new RotateTransform(0);
             Arrow.RenderTransform = rotateTransform;
         }
-
+        
+        /* événements déclanché par la pression d'une touche */
         private void KeyHandler(object sender, KeyEventArgs e)
         {
             List<int> arr = new List<int>();
             int points = 0;
             Random random = new Random();
+
+            /* path dynamique à faire */
             string picture = "C:\\Users\\arthu\\source\\repos\\ETP\\EffraieTonPote\\arrow.png";
+
             Arrow.Source = new BitmapImage(new Uri(picture));
 
             for (int i = 0; i <= 4; i++)
