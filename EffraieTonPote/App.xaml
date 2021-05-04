@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:EffraieTonPote"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <BitmapImage x:Key="ArrowSrc" UriSource="\ETP\EffraieTonPote\arrow.png" />
+        <BitmapImage x:Key="ArrowSrc" UriSource="\arrow.png" />
     </Application.Resources>
 </Application>

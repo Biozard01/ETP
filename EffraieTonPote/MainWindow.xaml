@@ -3,22 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EffraieTonPote"
         mc:Ignorable="d"
         Title="Effraie Ton Pote" Height="600" Width="800"
-        Background="Gray">
+        Background="Gray"
+        KeyUp="KeyHandler">
 
 
     <Grid>
-        <TextBlock Background="LightBlue" Foreground="Black" x:Name="TextBlock1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Button Content="Go !" KeyUp="KeyHandler" Margin="336,31,336,442" Click="Play"/>
-        <Button Content="Restart" Click="Reset" Margin="661,10,10,473"/>
+        <!-- background + boutons -->
+        <TextBlock Name="TextBlock1" Background="LightBlue" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button Name="Start" Content="Clique Moi Dessus Ou Appuie Sur Une Touche !" Margin="238,251,238,261" Click="Play"/>
+        <Button Name="Stop" Content="Restart" Margin="662,10,10,463" Visibility="Visible" Click="Reset"/>
 
-        <TextBlock Background="White" Foreground="Black"  Width="150" Height="100" x:Name="TextBlock0" Margin="10,10,640,474"/>
-        <TextBlock Background="White" Foreground="Black"  Width="150" Height="100" x:Name="TextBlock2" Margin="10,474,640,10"/>
-        <TextBlock Background="White" Foreground="Black"  Width="150" Height="50" x:Name="TextBlock3" Margin="10,419,640,115"/>
-        
-        <Image x:Name="Arrow" Source="arrow.png" HorizontalAlignment="Left" Height="100" Margin="341,253,0,0" VerticalAlignment="Top" Width="100"/>
+        <!-- balise de texte qui affiche différents information utiles -->
+        <TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474"/>
+        <TextBlock Name="TextBlock2" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,474,640,10"/>
+        <TextBlock Name="TextBlock3" Background="White" Foreground="Black"  Width="150" Height="50" Margin="10,419,640,115"/>
+        <TextBlock Name="TextBlock4" Background="White" Foreground="Black" Height="50" Margin="204,35,166,499"/>
+
+        <!-- position de l'image -->
+        <Image x:Name="Arrow" HorizontalAlignment="Left" Height="100" Margin="341,253,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>
