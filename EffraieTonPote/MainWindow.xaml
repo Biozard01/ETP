@@ -6,20 +6,20 @@
         mc:Ignorable="d"
         Title="Effraie Ton Pote" Height="600" Width="800"
         Background="Gray"
-        KeyUp="KeyHandler">
+        >
 
 
     <Grid>
         <!-- background + boutons -->
         <TextBlock Name="TextBlock1" Background="LightBlue" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Button Name="Start" Content="Clique Moi Dessus Ou Appuie Sur Une Touche !" Margin="238,251,238,261" Click="Play"/>
+        <Button Name="Start" Content="Clique Moi !" Margin="336,261,336,260" Click="Play"/>
         <Button Name="Stop" Content="Restart" Margin="662,10,10,463" Visibility="Visible" Click="Reset"/>
 
         <!-- balise de texte qui affiche différents information utiles -->
         <TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474"/>
         <TextBlock Name="TextBlock2" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,474,640,10"/>
         <TextBlock Name="TextBlock3" Background="White" Foreground="Black"  Width="150" Height="50" Margin="10,419,640,115"/>
-        <TextBlock Name="TextBlock4" Background="White" Foreground="Black" Height="50" Margin="204,35,166,499"/>
+        <TextBlock Name="TextBlock4" Background="White" Foreground="Black" Height="50" Margin="238,41,238,493"/>
 
         <!-- position de l'image -->
         <Image x:Name="Arrow" HorizontalAlignment="Left" Height="100" Margin="341,253,0,0" VerticalAlignment="Top" Width="100"/>
