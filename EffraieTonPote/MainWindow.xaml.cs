@@ -38,17 +38,16 @@ namespace EffraieTonPote
             Arrow.RenderTransform = rotateTransform;
         }
 
-        /* événements déclanché par la pression d'une touche */
+        /* Événements déclanché par la pression d'une touche */
         private void KeyHandler(object sender, KeyEventArgs e)
         {
             int pick = (int)Application.Current.Properties["Pick"];
             int points = (int) Application.Current.Properties["Points"];
             
-            /* affichage des éléments */
-
+            /* Affichage des éléments */
             Arrow.Visibility = Visibility.Visible;
 
-            /* determination de la direction de la flèche */
+            /* Determination de la direction de la flèche */
             Picker();
             ArrDir();
 
