@@ -26,97 +26,96 @@ namespace EffraieTonPote
             InitializeComponent();
 
             /* Init de la grid (affichage et dissimulation des éléments)*/
-
             TextBlock0.Visibility = Visibility.Hidden;
             TextBlock1.Background = Brushes.LightBlue;
             TextBlock2.Visibility = Visibility.Hidden;
             TextBlock3.Visibility = Visibility.Hidden;
 
             Start.Visibility = Visibility.Visible;
-            Stop.Visibility = Visibility.Hidden;
 
             Arrow.Visibility = Visibility.Hidden;
             RotateTransform rotateTransform = new(0);
             Arrow.RenderTransform = rotateTransform;
+        }
 
-            /* variable global pour les points */
+        /* événements déclanché par la pression d'une touche */
+        private void KeyHandler(object sender, KeyEventArgs e)
+        {
+            int pick = (int)Application.Current.Properties["Pick"];
+            int points = (int) Application.Current.Properties["Points"];
+            
+            /* affichage des éléments */
 
-            Application.Current.Properties["Points"] = 0;
+            Arrow.Visibility = Visibility.Visible;
 
-            /* timer */
+            /* determination de la direction de la flèche */
+            Picker();
+            ArrDir();
 
-            Application.Current.Properties["Time"] = "0";
-            string time = (string) Application.Current.Properties["Time"];
+            /* Test pour voir si les touche relaché correspondent aux bonne direction de flèches */
+            if (pick == 1 && e.Key == Key.Z || pick == 2 && e.Key == Key.S || pick == 3 && e.Key == Key.Q ||
+                pick == 4 && e.Key == Key.D)
+             {
+                 points++; 
+                 Application.Current.Properties["Points"] = points; 
+                 TextBlock2.Text = "Scores : " + points; 
+                 TextBlock1.Background = Brushes.LightGreen;
+             }
 
-            DispatcherTimer timer = new()
+            else
             {
-                Interval = TimeSpan.FromSeconds(1)
-            };
+                /* Reset de points */
+                points = 0;
+                Application.Current.Properties["Points"] = 0;
+                TextBlock2.Text = "Scores : " + points;
+                TextBlock1.Background = Brushes.Red;
 
-            timer.Tick += ElapsedTime;
-            timer.Start();
+                /* Affichage des éléments */
+                TextBlock0.Visibility = Visibility.Hidden;
+                TextBlock2.Visibility = Visibility.Hidden;
+                TextBlock3.Visibility = Visibility.Hidden;
 
-            void ElapsedTime(object sender, EventArgs e)
-            {
-                if (time == "5")
-                {
-                    TextBlock1.Text = "ouah";
-                }
+                Arrow.Visibility = Visibility.Hidden;
+                RotateTransform rotateTransform = new(0);
+                Arrow.RenderTransform = rotateTransform;
+
+                KeyUp -= KeyHandler;
             }
         }
 
-        /* bouton reset on-click */
-        private void Reset(object sender, RoutedEventArgs e)
-        {
-            TextBlock0.Visibility = Visibility.Hidden;
-            TextBlock1.Background = Brushes.LightBlue;
-            TextBlock2.Visibility = Visibility.Hidden;
-            TextBlock3.Visibility = Visibility.Hidden;
-
-            Start.Visibility = Visibility.Visible;
-            Stop.Visibility = Visibility.Hidden;
-
-            Arrow.Visibility = Visibility.Hidden;
-            RotateTransform rotateTransform = new(0);
-            Arrow.RenderTransform = rotateTransform;
-        }
-
-        /* bouton play on-click */
+        /* Bouton play on-click */
         private void Play(object sender, RoutedEventArgs e)
         {
-            /* affichage des éléments */
+            /* Path dynamique à faire (va chercher le bon user) */
+            string picture = "C:\\Users\\arthu\\source\\repos\\ETP\\EffraieTonPote\\arrow.png";
 
+            Arrow.Source = new BitmapImage(new Uri(picture));
+
+            /* Variable global pour les points */
+            Application.Current.Properties["Points"] = 0;
+
+            /* Affichage des éléments */
             TextBlock0.Visibility = Visibility.Visible;
             TextBlock1.Background = Brushes.LightBlue;
             TextBlock2.Visibility = Visibility.Visible;
             TextBlock3.Visibility = Visibility.Visible;
 
             Start.Visibility = Visibility.Hidden;
-            Stop.Visibility = Visibility.Visible;
-            
+
             Arrow.Visibility = Visibility.Visible;
+            
+            /* Determination de la direction de la flèche */
+            Picker();
+            ArrDir();
 
-            /* path dynamique à faire (va chercher le bon user) */
-            string picture = "C:\\Users\\arthu\\source\\repos\\ETP\\EffraieTonPote\\arrow.png";
+            /* Événements déclanché par la pression d'une touche */
+            KeyUp += KeyHandler;
+        }
 
-            Arrow.Source = new BitmapImage(new Uri(picture));
-
-            /* init des variables */
-
-            List<int> arr = new();
-            Random random = new();
-
-            for (int i = 0; i <= 4; i++)
-            {
-                arr.Add(i);
-            }
-
-            int pick = random.Next(1, arr.Count);
-            Application.Current.Properties["Pick"] = pick;
-
-            TextBlock4.Text = "Première gen " + pick;
-
-            /* determination de la direction de la flèche */
+        /* Determination de la direction de la flèche */
+        private void ArrDir()
+        {
+            int pick = (int)Application.Current.Properties["Pick"];
 
             if (pick == 1)
             {
@@ -153,22 +152,11 @@ namespace EffraieTonPote
                 RotateTransform rotateTransform = new(0);
                 Arrow.RenderTransform = rotateTransform;
             }
-            
-            KeyUp += KeyHandler;
         }
 
-        /* événements déclanché par la pression d'une touche */
-        private void KeyHandler(object sender, KeyEventArgs e)
+        /* Random picker */
+        private void Picker()
         {
-            int points = (int) Application.Current.Properties["Points"];
-            int pick = (int) Application.Current.Properties["Pick"];
-
-            /* affichage des éléments */
-
-            Arrow.Visibility = Visibility.Visible;
-
-            /* init des variables */
-
             List<int> arr = new();
             Random random = new();
 
@@ -178,71 +166,13 @@ namespace EffraieTonPote
             }
 
             Application.Current.Properties["Pick"] = random.Next(1, arr.Count);
-            TextBlock3.Text = "Gen en cour " + pick;
+            int pick = (int)Application.Current.Properties["Pick"];
+        }
 
-            /* determination de la direction de la flèche */
-
-            if (pick == 1)
-            {
-                string sarrowdir = "haut";
-                TextBlock0.Text = "Direction : " + sarrowdir;
-
-                RotateTransform rotateTransform = new(-90);
-                Arrow.RenderTransform = rotateTransform;
-            }
-
-            else if (pick == 2)
-            {
-                string sarrowdir = "bas";
-                TextBlock0.Text = "Direction : " + sarrowdir;
-
-                RotateTransform rotateTransform = new(90);
-                Arrow.RenderTransform = rotateTransform;
-            }
-
-            else if (pick == 3)
-            {
-                string sarrowdir = "gauche";
-                TextBlock0.Text = "Direction : " + sarrowdir;
-
-                RotateTransform rotateTransform = new(180);
-                Arrow.RenderTransform = rotateTransform;
-            }
-
-            else if (pick == 4)
-            {
-                string sarrowdir = "droite";
-                TextBlock0.Text = "Direction : " + sarrowdir;
-
-                RotateTransform rotateTransform = new(0);
-                Arrow.RenderTransform = rotateTransform;
-            }
-
-            /* test pour voir si les touche relaché correspondent aux bonne direction de flèches */
-
-            if (pick == 1 && e.Key == Key.Z || pick == 2 && e.Key == Key.S || pick == 3 && e.Key == Key.Q ||
-                pick == 4 && e.Key == Key.D)
-            {
-                points++;
-                Application.Current.Properties["Points"] = points;
-                TextBlock2.Text = "Scores : " + points;
-                TextBlock1.Background = Brushes.Green;
-            } 
-            
-            else
-            {
-                points = 0;
-                Application.Current.Properties["Points"] = points;
-                TextBlock2.Text = "Scores : " + points;
-                TextBlock1.Background = Brushes.Red;
-
-                /* affichage des éléments */
-
-                Arrow.Visibility = Visibility.Visible;
-                Start.Visibility = Visibility.Hidden;
-                Stop.Visibility = Visibility.Visible;
-            }
+        /* Timer */
+        private void Timer()
+        {
+            Application.Current.Properties["Time"] = "0";
         }
     }
-
 }

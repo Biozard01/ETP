@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        xmlns:local="clr-namespace:EffraieTonPote"
         Title="Effraie Ton Pote" Height="600" Width="800"
         Background="Gray"
         >
@@ -13,7 +14,6 @@
         <!-- background + boutons -->
         <TextBlock Name="TextBlock1" Background="LightBlue" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <Button Name="Start" Content="Clique Moi !" Margin="336,261,336,260" Click="Play"/>
-        <Button Name="Stop" Content="Restart" Margin="662,10,10,463" Visibility="Visible" Click="Reset"/>
 
         <!-- balise de texte qui affiche différents information utiles -->
         <TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474"/>
