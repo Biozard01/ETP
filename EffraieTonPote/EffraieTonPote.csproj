@@ -7,7 +7,7 @@
     <StartupObject></StartupObject>
     <Authors>Craoutch Corp.</Authors>
     <NeutralLanguage>fr</NeutralLanguage>
-    <ApplicationIcon>icone.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
