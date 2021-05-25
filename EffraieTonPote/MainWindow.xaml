@@ -12,14 +12,15 @@
 
     <Grid>
         <!-- background + boutons -->
-        <TextBlock Name="TextBlock1" Foreground="Black" Margin="0,0,0,-1"/>
+        <TextBlock Name="TextBlock1" Background="LightBlue" Foreground="Black" Margin="0,0,0,-1"/>
         <Button Name="Play" Content="Clique Moi !" Margin="336,261,336,260" Click="Start"/>
 
         <!-- balise de texte qui affiche différents information utiles -->
         <TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474" Visibility="Hidden"/>
 
         <!-- position de l'image -->
-        <Image x:Name="Arrow" HorizontalAlignment="Left" Margin="0,0,10,0" VerticalAlignment="Center" Height="100" Width="100" Visibility="Hidden"/>
+        <Image x:Name="Arrow" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Height="100" Width="100" Visibility="Hidden"/>
+        <Image x:Name="Scary"  Visibility="Hidden"/>
 
     </Grid>
 </Window>

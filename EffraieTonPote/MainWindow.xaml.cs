@@ -75,9 +75,30 @@ namespace EffraieTonPote
 
 			else
 			{
+				KeyUp -= KeyHandler;
+				TextBlock1.Background = Brushes.Red;
+				TextBlock0.Visibility = Visibility.Hidden;
 				Application.Current.Properties["Points"] = 0;
+
+				string picture = "Assets\\scary.jpg";
+				string path1 = System.IO.Path.Combine(Environment.CurrentDirectory.Replace("\\bin\\Debug\\net5.0-windows", ""), picture);
+				Scary.Source = new BitmapImage(new Uri(path1));
+				Scary.Visibility = Visibility.Visible;
+
+				string sound = "Assets\\jumpscare.wav";
+				string path0 = System.IO.Path.Combine(Environment.CurrentDirectory.Replace("\\bin\\Debug\\net5.0-windows", ""), sound);
+				MediaPlayer Sound1 = new MediaPlayer();
+				Sound1.Open(new Uri(path0));
+				Sound1.Play();
 				
-				Environment.Exit(1);
+				var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(7) };
+				timer.Start();
+				timer.Tick += (sender, args) =>
+				{
+					timer.Stop();
+					Reset();
+					Sound1.Stop();
+				};
 			}
 		}
 
@@ -111,6 +132,24 @@ namespace EffraieTonPote
 					Arrow.RenderTransform = rotateTransform;
 					break;
 			}
+		}
+
+		/* Reset */
+		public void Reset()
+		{
+			Application.Current.Properties["Points"] = 0;
+
+			Play.Visibility = Visibility.Visible;
+			TextBlock1.Background = Brushes.LightBlue;
+
+			Scary.Visibility = Visibility.Hidden;
+			Arrow.Visibility = Visibility.Hidden;
+			TextBlock0.Visibility = Visibility.Hidden;
+
+			RotateTransform rotateTransform = new(0);
+			Arrow.RenderTransform = rotateTransform;
+
+			KeyUp -= KeyHandler;
 		}
 	}
 }
