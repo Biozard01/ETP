@@ -10,18 +10,17 @@
 		>
 
 
-	<Grid>
-		<!-- background + boutons -->
-		<TextBlock Name="TextBlock1" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-		<Button Name="Play" Content="Clique Moi !" Margin="336,261,336,260" Click="Start"/>
+    <Grid>
+        <!-- background + boutons -->
+        <TextBlock Name="TextBlock1" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button Name="Play" Content="Clique Moi !" Margin="336,261,336,260" Click="Start"/>
 
-		<!-- balise de texte qui affiche différents information utiles -->
-		<TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474" Visibility="Hidden"/>
-		<TextBlock Name="TextBlock2" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,474,640,10" Visibility="Hidden"/>
-		<TextBlock Name="TextBlock3" Background="White" Foreground="Black"  Width="150" Height="50" Margin="10,419,640,115" Visibility="Hidden"/>
+        <!-- balise de texte qui affiche différents information utiles -->
+        <TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474" Visibility="Hidden"/>
+        <TextBox x:Name="TestBox" Margin="517,442,10,10"/>
 
-		<!-- position de l'image -->
-		<Image x:Name="Arrow" HorizontalAlignment="Left" Height="100" Margin="341,253,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <!-- position de l'image -->
+        <Image x:Name="Arrow" HorizontalAlignment="Left" Height="100" Margin="341,253,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
 
-	</Grid>
+    </Grid>
 </Window>
