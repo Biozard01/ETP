@@ -12,12 +12,12 @@
 
     <Grid>
         <!-- background + boutons -->
-        <TextBlock Name="TextBlock1" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBlock Name="TextBlock1" Foreground="Black" Margin="0,0,0,-1"/>
         <Button Name="Play" Content="Clique Moi !" Margin="336,261,336,260" Click="Start"/>
 
         <!-- balise de texte qui affiche différents information utiles -->
         <TextBlock Name="TextBlock0" Background="White" Foreground="Black"  Width="150" Height="100" Margin="10,10,640,474" Visibility="Hidden"/>
-        <TextBox x:Name="TestBox" Margin="517,442,10,10"/>
+        <TextBox x:Name="TestBox" Margin="676,380,10,10"/>
 
         <!-- position de l'image -->
         <Image x:Name="Arrow" HorizontalAlignment="Left" Height="100" Margin="341,253,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
