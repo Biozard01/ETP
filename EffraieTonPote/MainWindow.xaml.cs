@@ -31,9 +31,10 @@ namespace EffraieTonPote
 		private void Start(object sender, RoutedEventArgs e)
 		{
 			/* Path dynamique à faire (va chercher le bon user) */
-			string picture = "C:/Users/arthu/source/repos/ETP/EffraieTonPote/Assets/arrow.png";
+            string picture = "Assets\\arrow.png";
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory.Replace("\\bin\\Debug\\net5.0-windows", ""), picture);
 
-			Arrow.Source = new BitmapImage(new Uri(picture));
+            Arrow.Source = new BitmapImage(new Uri(path));
 
 			/* Variable global pour les points */
 			Application.Current.Properties["Points"] = 0;
