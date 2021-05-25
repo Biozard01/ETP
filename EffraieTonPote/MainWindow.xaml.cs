@@ -64,8 +64,8 @@ namespace EffraieTonPote
 			/*Determination de la direction de la flèche*/
 			ArrDir();
 
-			if (pick == 1 && e.Key == Key.Z || pick == 2 && e.Key == Key.S || pick == 3 && e.Key == Key.Q ||
-			   pick == 4 && e.Key == Key.D) 
+			if (pick == 1 && e.Key == Key.Up || pick == 2 && e.Key == Key.Down || pick == 3 && e.Key == Key.Left ||
+			   pick == 4 && e.Key == Key.Right)
 			{
 				points++;
 				Application.Current.Properties["Points"] = points;
@@ -76,7 +76,7 @@ namespace EffraieTonPote
 			else
 			{
 				Application.Current.Properties["Points"] = 0;
-							
+				
 				Environment.Exit(1);
 			}
 		}
@@ -94,22 +94,16 @@ namespace EffraieTonPote
 				case 1:
 					RotateTransform rotateTransform = new(-90);
 					Arrow.RenderTransform = rotateTransform;
-					Arrow.HorizontalAlignment = HorizontalAlignment.Center;
-					Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 
 				case 2:
 					rotateTransform = new(90);
 					Arrow.RenderTransform = rotateTransform;
-					Arrow.HorizontalAlignment = HorizontalAlignment.Center;
-					Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 
 				case 3:
 					rotateTransform = new(180);
 					Arrow.RenderTransform = rotateTransform;
-					Arrow.HorizontalAlignment = HorizontalAlignment.Center;
-					Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 
 				default:
