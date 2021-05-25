@@ -115,21 +115,29 @@ namespace EffraieTonPote
 				case 1:
 					RotateTransform rotateTransform = new(-90);
 					Arrow.RenderTransform = rotateTransform;
+                    Arrow.HorizontalAlignment = HorizontalAlignment.Center;
+                    Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 
 				case 2:
 					rotateTransform = new(90);
 					Arrow.RenderTransform = rotateTransform;
+                    Arrow.HorizontalAlignment = HorizontalAlignment.Center;
+                    Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 
 				case 3:
 					rotateTransform = new(180);
 					Arrow.RenderTransform = rotateTransform;
+                    Arrow.HorizontalAlignment = HorizontalAlignment.Center;
+                    Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 
 				default:
 					rotateTransform = new(0);
 					Arrow.RenderTransform = rotateTransform;
+                    Arrow.HorizontalAlignment = HorizontalAlignment.Center;
+                    Arrow.VerticalAlignment = VerticalAlignment.Center;
 					break;
 			}
 		}
